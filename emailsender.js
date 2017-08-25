@@ -102,8 +102,8 @@ router.get('/webhook', function(req, res, next) {
   }
 
   var flightrounttripdetails = {
-    firstdate : 'May 30, 2020',
-    secondate : 'September 20, 2020'
+    startdate : 'May 30, 2020',
+    returndate : 'September 20, 2020'
   }
 
   res.json(flightrounttripdetails);
