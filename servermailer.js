@@ -11,7 +11,7 @@ app.use(expressValidator());
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
-var nodemailer = require('./routes/emailsender');
+var nodemailer = require('./emailsender');
 
 app
 .use('/sendinquiry', nodemailer); 
