@@ -1,0 +1,30 @@
+{
+  "name": "webhook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "emailsender.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noelbclarion/webhookapi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noelbclarion/webhookapi/issues"
+  },
+  "homepage": "https://github.com/noelbclarion/webhookapi#readme",
+  "dependencies": {
+    "async": "^2.5.0",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "crypto": "^1.0.1",
+    "express": "^4.15.4",
+    "express-mailer": "^0.3.1",
+    "express-validator": "^3.2.1",
+    "jade": "^1.11.0",
+    "nodemailer": "^4.0.1"
+  }
+}
