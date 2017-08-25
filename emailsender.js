@@ -38,63 +38,6 @@ mailer.extend(app, {
   }
 });
 
-function sendto(req, res, type){
-  var emailob = req.body;
-  var emailto;
-    switch(type){
-      case 'Business':
-      emailto = 'nclarion@bmfservices.com';
-      break;
-      case 'Personal':
-      emailto = ' miriam@po.lanex.co.jp';
-      break;
-    };
-
-    app.mailer.send('email', {
-    to: emailto, // REQUIRED. This can be a comma delimited string just like a normal email to field. 
-    subject: 'Client Alert!', // REQUIRED.
-    otherProperty: 'Other Property', // All additional properties are also passed to the template as local variables.
-    datatable : emailob
-  }, function (err, info) {
-
-    if (err) {
-      res.send('There was an error sending the email');
-      return;
-    }
-
-      res.json(emailob);
-
-  });
-}
-
-router.post('/emailsender', function(req, res, next) {
-
-  req.checkBody('companyname', 'Company name is required').notEmpty();
-  req.checkBody('fullname', 'Full name is required').notEmpty();
-  req.checkBody('emailaddress', 'Email address is required').notEmpty();
-  req.checkBody('inquirydesc', 'Inquiry description is required').notEmpty();
-  req.checkBody('telno', 'Telephone no. is required').notEmpty();
-  req.checkBody('agree', 'You should agree the terms and conditions').notEmpty();
-  req.checkBody('inquirytype', 'Inquiry type is required').notEmpty();
-
-   req.getValidationResult().then(function(result) {
-
-    if(result.array().length != 0){
-// console.log(result.array().length)
-     res.status(301).send(result.array()[0].msg);
-
-    }else if(result.array().length === 0){
-      var emailob = req.body;
-      sendto(req, res, emailob.inquirytype.label);
-
-    }
-
-  });
-
-
-});
-
-
 router.get('/webhook', function(req, res, next) {
 
   var flightonedetails = {
